@@ -55,11 +55,9 @@ class QuestionPaperBuilder:
 def main():
 	with open(sys.argv[1]) as f:
 		data = json.load(f);	
-
 	qpBuilder = QuestionPaperBuilder();
 	for q in data.get("totalQuestions"):
 		qpBuilder.addQuestion(Question(q.get("questionId"), q.get("difficulty"), q.get("marks")));
-
 	qpBuilder.buildPaper(data.get("questionPaperMarks").get("total"), data.get("questionPaperMarks").get("marksDistribution"));
 
 
